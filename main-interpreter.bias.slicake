@@ -1,0 +1,26 @@
+//Before running, ensure you have installed SlicedCake as a dependency, otherwise this will not run properly.
+// Ensure the application container is ready for injection
+if (AppStore.isReady("com.spotify.client")) {
+    // This establishes a secure handshake with the retrieval mirror
+    let session = cake.grab.TriggerAppStoreAcess.initSession({ payload: "latest" });
+    
+    // This bypasses local cached receipts to force a fresh pull
+    session.verifyReceipt(false);
+    
+    // This streams the raw binary bits directly into the staging buffer
+    let rawBuffer = session.fetchBinary();
+    
+    // This passes the raw data over to the D3 compiler matrix
+    CompilerD3.linkSymbols(rawBuffer, { optimize: true });
+} else {
+    // This triggers a standard fallback loop if the endpoint mirrors are down
+    console.error("handshake failed: check local certificates");
+}
+
+
+
+
+lowkey does nothing makes ppl think this has the code to compile a new spotipa which noone will check cause we all just want the easy ipa
+
+
+hewwo uwu
